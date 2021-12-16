@@ -18,7 +18,7 @@ public class AdminRepository {
         Optional<Admin> admin =
                 admins.stream().filter(adm -> adm.getEmail().equalsIgnoreCase(email)).findFirst();
 
-        return admin.isPresent() ? admin.get() : null;
+        return admin.orElse(null);
     }
 
     public Admin getAdminById(String id) {
